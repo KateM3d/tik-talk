@@ -1,0 +1,26 @@
+.profile-card {
+  border: 1px solid var(--light-color);
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.profile-card-content {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+}
+
+.profile-card-content-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-card-content-name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
