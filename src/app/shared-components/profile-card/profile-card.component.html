@@ -2,22 +2,23 @@
 
 <div class="profile-card">
     <div class="profile-card-content">
-        <img class="profile-card-content-image" src="/assets/images/profile-image.png" alt="Profile Image">
+        <img class="profile-card-content-image" [src]="profile.avatarUrl | imgUrl" alt="Profile Image">
         <div class="profile-card-content-name">
-            <strong class="h6">John Doe</strong>
-            <span>john</span>
+            <strong class="h6">{{profile.firstName | translit }} {{profile.lastName | translit }}</strong>
+            <span>{{profile.username}}</span>
         </div>
     </div>
 
     <div class="profile-card-description">
-        text
+        {{profile.description | translit }}
     </div>
 
     <div class="profile-card-tags">
-        <div class="skill-tag">Angular</div>
-        <div class="skill-tag">React</div>
-        <div class="skill-tag">Java</div>
-        <div class="skill-tag">Python</div>
+        @for(skill of profile.stack; track skill){
+        <div class="skill-tag">
+            {{skill}}
+        </div>
+        }
     </div>
 
     <div class="profile-card-action-btn">
