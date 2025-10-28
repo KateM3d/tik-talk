@@ -20,6 +20,8 @@ export class LoginPageComponent {
     password: new FormControl(null, Validators.required),
   });
 
+  constructor() {}
+
   onSubmit(): void {
     if (this.form.valid) {
       this.authService.login(this.form.value).subscribe((res) => {
