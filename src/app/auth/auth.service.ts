@@ -12,7 +12,7 @@ export class AuthService {
   baseUrl = 'https://icherniakov.ru/yt-course/auth/';
   token: string | null = null;
   refreshToken: string | null = null;
-  cookieService = inject(CookieService);
+  cookieService: CookieService = inject(CookieService);
 
   get isAuth() {
     if (!this.token) {

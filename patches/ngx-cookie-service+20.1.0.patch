@@ -1,0 +1,12 @@
+diff --git a/node_modules/ngx-cookie-service/fesm2022/ngx-cookie-service.mjs b/node_modules/ngx-cookie-service/fesm2022/ngx-cookie-service.mjs
+index 0000000..1111111 100644
+--- a/node_modules/ngx-cookie-service/fesm2022/ngx-cookie-service.mjs
++++ b/node_modules/ngx-cookie-service/fesm2022/ngx-cookie-service.mjs
+@@ -1,4 +1,4 @@
+-import { isPlatformBrowser } from '@angular/common';
++import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+ import * as i0 from '@angular/core';
+-import { DOCUMENT, PLATFORM_ID, Inject, Injectable } from '@angular/core';
++import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
+ 
+ class CookieService {
