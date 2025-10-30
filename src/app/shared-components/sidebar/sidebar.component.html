@@ -1,1 +1,28 @@
-<p>sidebar works!</p>
+<img src="/assets/images/logo-small.svg" alt="logo_small">
+
+<nav>
+  <ul class="main-menu-list">
+    @for (menuItem of menuItems; track menuItem.id){
+    <li>
+      <button class="menu-item">
+        <img [src]="'/assets/images/' + menuItem.icon + '.svg'" alt="icon">
+        <span>{{menuItem.label}}</span>
+      </button>
+    </li>
+    }
+  </ul>
+</nav>
+
+<p class="medium-text">Followers</p>
+
+
+@for (profile of subscribers$ | async; track profile.id) {
+
+<app-subscriber-card [profile]="profile"></app-subscriber-card>
+}
+
+
+<div class="to-subscribers">
+  <a [routerLink]="['/subscribers']" class="to-subscribers-link">All Followers <img class="to-subscribers-icon"
+      src="/assets/images/arrow.svg" alt=""></a>
+</div>
