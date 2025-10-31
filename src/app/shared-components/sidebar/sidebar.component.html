@@ -26,3 +26,18 @@
   <a [routerLink]="['/subscribers']" class="to-subscribers-link">All Followers <img class="to-subscribers-icon"
       src="/assets/images/arrow.svg" alt=""></a>
 </div>
+
+<footer class="sidebar-footer">
+  @if (me(); as meValue) {
+  @if (meValue.avatarUrl) {
+
+  <img [src]="meValue.avatarUrl | imgUrl" alt="profile_image">
+  }
+  @else { <img src="/assets/images/noprofile.svg" alt="profile_image">}
+  <div class="user-name">{{meValue.username}}</div>
+  <a [routerLink]="['settings']" class="settings-btn">
+    <img src="/assets/images/settings.svg" alt="icon_settings">
+  </a>
+  }
+
+</footer>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { inject, Injectable, signal } from '@angular/core';
+import { map, tap } from 'rxjs';
 import { Profile } from '../interfaces/profile.interface';
 import { SubscribersList } from '../interfaces/subscribersList.interface';
 
@@ -10,6 +10,8 @@ import { SubscribersList } from '../interfaces/subscribersList.interface';
 export class ProfileService {
   http: HttpClient = inject(HttpClient);
   baseUrl = 'https://icherniakov.ru/yt-course/';
+  me = signal<Profile | null>(null);
+
   constructor() {}
 
   getTestAccounts() {
@@ -17,7 +19,11 @@ export class ProfileService {
   }
 
   getMe() {
-    return this.http.get<Profile>(`${this.baseUrl}account/me`);
+    return this.http.get<Profile>(`${this.baseUrl}account/me`).pipe(
+      tap((res) => {
+        this.me.set(res);
+      })
+    );
   }
 
   getSubscribersShortlist() {
