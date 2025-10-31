@@ -33,7 +33,7 @@
 
   <img [src]="meValue.avatarUrl | imgUrl" alt="profile_image">
   }
-  @else { <img src="/assets/images/noprofile.svg" alt="profile_image">}
+  @else { <img class="account_logo" src="/assets/images/account_circle.svg" alt="profile_image">}
   <div class="user-name">{{meValue.username}}</div>
   <a [routerLink]="['settings']" class="settings-btn">
     <img src="/assets/images/settings.svg" alt="icon_settings">
